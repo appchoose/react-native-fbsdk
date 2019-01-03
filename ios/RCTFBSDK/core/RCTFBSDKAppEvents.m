@@ -50,8 +50,39 @@ RCT_EXPORT_METHOD(logEvent:(NSString *)eventName
                accessToken:nil];
 }
 
+RCT_EXPORT_METHOD(logAddedToCartEvent:(NSString *)contentId
+    contentType:(NSString *)contentType
+    currency:(NSString *)currency
+    valueToSum:(double)price {
+    NSDictionary *params =
+    @{
+      FBSDKAppEventParameterNameContentID : contentId,
+      FBSDKAppEventParameterNameContentType : contentType,
+      FBSDKAppEventParameterNameCurrency : currency
+      };
+    [FBSDKAppEvents
+     logEvent:FBSDKAppEventNameAddedToCart
+     valueToSum:price
+     parameters:params];
+}
+
+RCT_EXPORT_METHOD(logViewedContentEvent:(NSString *)contentId
+    contentType:(NSString *)contentType
+    currency:(NSString *)currency
+    valueToSum:(double)price {
+    NSDictionary *params =
+    @{
+      FBSDKAppEventParameterNameContentType : contentType,
+      FBSDKAppEventParameterNameContentID : contentId,
+      FBSDKAppEventParameterNameCurrency : currency
+      };
+    [FBSDKAppEvents logEvent:FBSDKAppEventNameViewedContent
+     valueToSum:price
+     parameters:params];
+}
+
 RCT_EXPORT_METHOD(logPurchase:(double)purchaseAmount
-                     currency:(NSString *)currency
+                  currency:(NSString *)currency
                    parameters:(NSDictionary *)parameters)
 {
   [FBSDKAppEvents logPurchase:purchaseAmount

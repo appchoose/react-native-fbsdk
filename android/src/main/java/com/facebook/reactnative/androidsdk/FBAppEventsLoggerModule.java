@@ -178,6 +178,23 @@ public class FBAppEventsLoggerModule extends ReactContextBaseJavaModule {
                 Currency.getInstance(currencyCode),
                 Arguments.toBundle(parameters));
     }
+    @ReactMethod
+        public void logAddedToCartEvent (String contentId, String contentType, String currency, double price) {
+        Bundle params = new Bundle();
+        params.putString(AppEventsConstants.EVENT_PARAM_CONTENT_ID, contentId);
+        params.putString(AppEventsConstants.EVENT_PARAM_CONTENT_TYPE, contentType);
+        params.putString(AppEventsConstants.EVENT_PARAM_CURRENCY, currency);
+        mAppEventLogger.logEvent(AppEventsConstants.EVENT_NAME_ADDED_TO_CART, price, params);
+    }
+
+    @ReactMethod
+    public void logViewedContentEvent (String contentId,String contentType, String currency, double price) {
+        Bundle params = new Bundle();
+        params.putString(AppEventsConstants.EVENT_PARAM_CONTENT_TYPE, contentType);
+        params.putString(AppEventsConstants.EVENT_PARAM_CONTENT_ID, contentId);
+        params.putString(AppEventsConstants.EVENT_PARAM_CURRENCY, currency);
+        mAppEventLogger.logEvent(AppEventsConstants.EVENT_NAME_VIEWED_CONTENT, price, params);
+    }
 
     /**
      * Logs an app event that tracks that the application was open via Push Notification.

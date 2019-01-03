@@ -156,4 +156,22 @@ module.exports = {
   setPushNotificationsRegistrationId(registrationId: string) {
     AppEventsLogger.setPushNotificationsRegistrationId(registrationId);
   },
+  logAddedToCartEvent(
+    contentId: string,
+    contentType: string,
+    currencyCode: string,
+    price: number
+  ) {
+    AppEventsLogger.logAddedToCartEvent(contentId, contentType, currencyCode, price);
+  },
+
+  logViewedContentEvent(
+    contentId: string,
+    contentType: string,
+    currencyCode: string,
+    price: number
+  ) {
+    AppEventsLogger.logViewedContentEvent(contentId, contentType, currencyCode, price);
+  },
+
 };
