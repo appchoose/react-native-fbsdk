@@ -160,18 +160,27 @@ module.exports = {
     contentId: string,
     contentType: string,
     currencyCode: string,
-    price: number
+    price: number,
   ) {
-    AppEventsLogger.logAddedToCartEvent(contentId, contentType, currencyCode, price);
+    AppEventsLogger.logAddedToCartEvent(
+      contentId,
+      contentType,
+      currencyCode,
+      price,
+    );
   },
 
   logViewedContentEvent(
     contentId: string,
     contentType: string,
     currencyCode: string,
-    price: number
+    price: number,
   ) {
-    AppEventsLogger.logViewedContentEvent(contentId, contentType, currencyCode, price);
+    AppEventsLogger.logViewedContentEvent(
+      contentId,
+      contentType,
+      currencyCode,
+      price,
+    );
   },
-
 };
