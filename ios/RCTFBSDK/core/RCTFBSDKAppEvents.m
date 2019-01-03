@@ -53,7 +53,7 @@ RCT_EXPORT_METHOD(logEvent:(NSString *)eventName
 RCT_EXPORT_METHOD(logAddedToCartEvent:(NSString *)contentId
     contentType:(NSString *)contentType
     currency:(NSString *)currency
-    valueToSum:(double)price {
+    valueToSum:(double)price) {
     NSDictionary *params =
     @{
       FBSDKAppEventParameterNameContentID : contentId,
@@ -69,7 +69,7 @@ RCT_EXPORT_METHOD(logAddedToCartEvent:(NSString *)contentId
 RCT_EXPORT_METHOD(logViewedContentEvent:(NSString *)contentId
     contentType:(NSString *)contentType
     currency:(NSString *)currency
-    valueToSum:(double)price {
+    valueToSum:(double)price) {
     NSDictionary *params =
     @{
       FBSDKAppEventParameterNameContentType : contentType,
