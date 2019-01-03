@@ -76,7 +76,8 @@ RCT_EXPORT_METHOD(logViewedContentEvent:(NSString *)contentId
       FBSDKAppEventParameterNameContentID : contentId,
       FBSDKAppEventParameterNameCurrency : currency
       };
-    [FBSDKAppEvents logEvent:FBSDKAppEventNameViewedContent
+    [FBSDKAppEvents 
+     logEvent:FBSDKAppEventNameViewedContent
      valueToSum:price
      parameters:params];
 }
