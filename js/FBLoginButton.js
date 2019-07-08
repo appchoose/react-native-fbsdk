@@ -22,9 +22,8 @@
  */
 'use strict';
 
-import PropTypes from 'prop-types';
 import * as React from 'react';
-import {requireNativeComponent, StyleSheet, ViewPropTypes} from 'react-native';
+import {requireNativeComponent, StyleSheet} from 'react-native';
 
 import type {
   DefaultAudience,
@@ -41,16 +40,10 @@ type TooltipBehaviorIOS = 'auto' | 'force_display' | 'disable';
  */
 class LoginButton extends React.Component<{
   /**
-   * Represents the read permissions to request when the login button
+   * Represents the permissions to request when the login button
    * is pressed.
    */
-  readPermissions?: Array<string>,
-
-  /**
-   * Represents the publish permissions to request when the login
-   * button is pressed.
-   */
-  publishPermissions?: Array<string>,
+  permissions?: Array<string>,
 
   /**
    * The callback invoked upon error/completion of a login request.
@@ -116,29 +109,6 @@ class LoginButton extends React.Component<{
     );
   }
 }
-
-/* $FlowFixMe(>=0.43.0) - Remove this comment to see errors found when Flow
- * v0.43.0 was deployed */
-LoginButton.propTypes = {
-  ...ViewPropTypes,
-  readPermissions: PropTypes.arrayOf(PropTypes.string),
-  publishPermissions: PropTypes.arrayOf(PropTypes.string),
-  onLoginFinished: PropTypes.func,
-  onLogoutFinished: PropTypes.func,
-  loginBehaviorAndroid: PropTypes.oneOf([
-    'native_with_fallback',
-    'native_only',
-    'web_only',
-  ]),
-  loginBehaviorIOS: PropTypes.oneOf([
-    'native',
-    'browser',
-    'system_account',
-    'web',
-  ]),
-  defaultAudience: PropTypes.oneOf(['only_me', 'friends', 'everyone']),
-  tooltipBehaviorIOS: PropTypes.oneOf(['auto', 'force_display', 'disable']),
-};
 
 const styles = StyleSheet.create({
   defaultButtonStyle: {

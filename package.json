@@ -1,6 +1,6 @@
 {
   "name": "react-native-fbsdk",
-  "version": "0.9.1",
+  "version": "1.0.0-rc.5",
   "description": "Facebook SDK support for React Native apps.",
   "main": "./js/index.js",
   "author": {
@@ -32,26 +32,28 @@
   ],
   "license": "Facebook Platform License",
   "scripts": {
+    "start": "react-native start",
     "flow": "flow",
     "lint": "eslint .",
     "prettier": "prettier \"./**/*.js\" --write"
   },
-  "dependencies": {
-    "adm-zip": "^0.4.7",
-    "fastfall": "^1.5.1",
-    "got": "^7.0.0",
-    "plist": "^2.1.0",
-    "progress": "^2.0.0",
-    "pump": "^1.0.2",
-    "xcode": "^1.0.0"
-  },
+  "files": [
+    "android",
+    "ios",
+    "js",
+    "LICENSE.txt",
+    "README.md",
+    "react-native-fbsdk.podspec"
+  ],
+  "dependencies": {},
   "peerDependencies": {
-    "prop-types": "15.x.x",
-    "react-native": ">=0.44.0"
+    "react-native": ">=0.60.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/runtime": "^7.4.5",
     "babel-eslint": "^10.0.1",
-    "eslint": "5.1.0",
+    "babel-jest": "^24.8.0",
     "eslint-config-fb-strict": "22.1.0",
     "eslint-plugin-babel": "^5.2.1",
     "eslint-plugin-flowtype": "2.43.0",
@@ -61,8 +63,14 @@
     "eslint-plugin-prettier": "2.6.0",
     "eslint-plugin-react": "7.6.1",
     "eslint-plugin-relay": "0.0.23",
-    "flow-bin": "^0.86.0",
-    "prettier": "^1.15.2"
+    "eslint": "5.1.0",
+    "flow-bin": "^0.98.0",
+    "jest": "^24.8.0",
+    "metro-react-native-babel-preset": "^0.54.1",
+    "prettier": "^1.15.2",
+    "react-native": "0.60.0-rc.1",
+    "react-test-renderer": "16.8.3",
+    "react": "16.8.6"
   },
   "prettier": {
     "requirePragma": true,
