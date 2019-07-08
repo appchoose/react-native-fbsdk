@@ -1,5 +1,5 @@
 package com.facebook.reactnative.androidsdk;
-
+import android.os.Bundle;
 import androidx.annotation.Nullable;
 
 import com.facebook.appevents.AppEventsConstants;
