@@ -1,6 +1,6 @@
 {
   "name": "react-native-fbsdk",
-  "version": "1.0.0-rc.5",
+  "version": "1.0.1",
   "description": "Facebook SDK support for React Native apps.",
   "main": "./js/index.js",
   "author": {
@@ -38,7 +38,9 @@
     "prettier": "prettier \"./**/*.js\" --write"
   },
   "files": [
-    "android",
+    "android/src/main/AndroidManifest.xml",
+    "android/src/main/java/",
+    "android/build.gradle",
     "ios",
     "js",
     "LICENSE.txt",
