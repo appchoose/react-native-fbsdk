@@ -7,7 +7,6 @@ import com.facebook.react.bridge.ReactContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 
-import com.facebook.react.bridge.Callback;
 import com.facebook.react.bridge.Promise;
 
 import java.util.Map;
@@ -45,6 +44,8 @@ public class FBAppLink extends ReactContextBaseJavaModule {
       }
       );
     } catch (Exception e) {
+         System.out.println("Get AppLink error");
+          System.out.println(e.getMessage())
       promise.reject(e.getMessage());
     }
   }
