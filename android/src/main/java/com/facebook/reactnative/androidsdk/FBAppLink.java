@@ -45,7 +45,7 @@ public class FBAppLink extends ReactContextBaseJavaModule {
       );
     } catch (Exception e) {
          System.out.println("Get AppLink error");
-          System.out.println(e.getMessage())
+          System.out.println(e.getMessage());
       promise.reject(e.getMessage());
     }
   }
