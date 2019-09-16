@@ -27,14 +27,10 @@ public class FBAppLink extends ReactContextBaseJavaModule {
   @ReactMethod
   public void get(final Promise promise) {
     try {
-        System.out.println("Get AppLink 1");
       AppLinkData.fetchDeferredAppLinkData(getCurrentActivity(),
         new AppLinkData.CompletionHandler() {
           @Override
           public void onDeferredAppLinkDataFetched(AppLinkData appLinkData) {
-
-              System.out.println("Get AppLink 2");
-
               if (appLinkData != null && appLinkData.getTargetUri() != null){
                 promise.resolve(appLinkData.getTargetUri().toString());
               }else{
@@ -44,7 +40,6 @@ public class FBAppLink extends ReactContextBaseJavaModule {
       }
       );
     } catch (Exception e) {
-         System.out.println("Get AppLink error");
           System.out.println(e.getMessage());
       promise.reject(e.getMessage());
     }
