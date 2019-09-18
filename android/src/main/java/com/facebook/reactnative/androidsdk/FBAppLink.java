@@ -27,7 +27,7 @@ public class FBAppLink extends ReactContextBaseJavaModule {
   @ReactMethod
   public void get(final Promise promise) {
     try {
-      AppLinkData.fetchDeferredAppLinkData(this,
+      AppLinkData.fetchDeferredAppLinkData(getReactApplicationContext(),
         new AppLinkData.CompletionHandler() {
           @Override
           public void onDeferredAppLinkDataFetched(AppLinkData appLinkData) {
