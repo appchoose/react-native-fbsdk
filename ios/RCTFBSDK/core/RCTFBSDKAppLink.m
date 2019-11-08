@@ -27,7 +27,7 @@ RCT_REMAP_METHOD(get,
         NSString* volumeString = [NSString stringWithFormat:@"%@", self->appLinkUrl];
         resolve(volumeString);
       }else{
-        resolve(null);
+        resolve(url);
       }
     }];
   });
