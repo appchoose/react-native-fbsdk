@@ -193,7 +193,24 @@ module.exports = {
       price,
     );
   },
-
+logAddedPaymentInfo() {
+    AppEventsLogger.logAddedPaymentInfo();
+  },
+  logInitiateCheckout(
+    contentId: string,
+    contentType: string,
+    currencyCode: string,
+    numItems: number,
+    price: number
+  ) {
+    AppEventsLogger.logInitiateCheckout(
+      contentId,
+      contentType,
+      currencyCode,
+      numItems,
+      price
+    );
+  },
   logViewedContentEvent(
     contentId: string,
     contentType: string,
