@@ -63,7 +63,7 @@ RCT_EXPORT_METHOD(logInitiateCheckout :(NSString *)contentId
     @{
       FBSDKAppEventParameterNameContentID : contentId,
       FBSDKAppEventParameterNameContentType : contentType,
-      FBSDKAppEventParameterNameCurrency : currency
+      FBSDKAppEventParameterNameCurrency : currency,
       FBSDKAppEventParameterNameNumItems : numItems
       };
     [FBSDKAppEvents
