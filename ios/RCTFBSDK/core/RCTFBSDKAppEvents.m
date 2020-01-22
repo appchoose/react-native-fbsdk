@@ -57,7 +57,7 @@ RCT_EXPORT_METHOD(logEvent:(NSString *)eventName
 RCT_EXPORT_METHOD(logInitiateCheckout :(NSString *)contentId
     contentType:(NSString *)contentType
     currency:(NSString *)currency
-    numItems:(double)numItems
+   numItems:(nonnull NSNumber *)numItems
     valueToSum:(double)price) {
     NSDictionary *params =
     @{
