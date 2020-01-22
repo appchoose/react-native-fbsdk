@@ -54,6 +54,34 @@ RCT_EXPORT_METHOD(logEvent:(NSString *)eventName
                accessToken:nil];
 }
 
+RCT_EXPORT_METHOD(logInitiateCheckout :(NSString *)contentId
+    contentType:(NSString *)contentType
+    currency:(NSString *)currency
+    numItems:(double)numItems
+    valueToSum:(double)price) {
+    NSDictionary *params =
+    @{
+      FBSDKAppEventParameterNameContentID : contentId,
+      FBSDKAppEventParameterNameContentType : contentType,
+      FBSDKAppEventParameterNameCurrency : currency
+      FBSDKAppEventParameterNameNumItems : numItems
+      };
+    [FBSDKAppEvents
+     logEvent:FBSDKAppEventNameInitiatedCheckout
+     valueToSum:price
+     parameters:params];
+}
+
+RCT_EXPORT_METHOD(logAddedPaymentInfo) {
+    NSDictionary *params =
+    @{
+      FBSDKAppEventParameterNameSuccess : 1
+      };
+    [FBSDKAppEvents
+     logEvent:FBSDKAppEventNameAddedPaymentInfo
+     parameters:params];
+}
+
 RCT_EXPORT_METHOD(logAddedToCartEvent:(NSString *)contentId
     contentType:(NSString *)contentType
     currency:(NSString *)currency

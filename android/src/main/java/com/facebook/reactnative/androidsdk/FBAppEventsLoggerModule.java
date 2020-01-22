@@ -163,6 +163,23 @@ public class FBAppEventsLoggerModule extends ReactContextBaseJavaModule {
                 Arguments.toBundle(parameters));
     }
     @ReactMethod
+        public void logAddedPaymentInfo () {
+        Bundle params = new Bundle();
+        params.putString(AppEventsConstants.EVENT_PARAM_SUCCESS, 1);
+        mAppEventLogger.logEvent(AppEventsConstants.EVENT_NAME_ADDED_PAYMENT_INFO, price, params);
+    }
+
+     @ReactMethod
+        public void logInitiateCheckout (String contentId, String contentType, String currency, double numItems, double price) {
+        Bundle params = new Bundle();
+        params.putString(AppEventsConstants.EVENT_PARAM_CONTENT_ID, contentId);
+        params.putString(AppEventsConstants.EVENT_PARAM_CONTENT_TYPE, contentType);
+        params.putString(AppEventsConstants.EVENT_PARAM_CURRENCY, currency);
+          params.putString(AppEventsConstants.EVENT_PARAM_NUM_ITEMS, numItems);
+        mAppEventLogger.logEvent(AppEventsConstants.EVENT_NAME_INITIATED_CHECKOUT, price, params);
+    }
+
+     @ReactMethod
         public void logAddedToCartEvent (String contentId, String contentType, String currency, double price) {
         Bundle params = new Bundle();
         params.putString(AppEventsConstants.EVENT_PARAM_CONTENT_ID, contentId);
