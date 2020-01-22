@@ -31,36 +31,30 @@ type AppEventsFlushBehavior =
    * Flush automatically: periodically (every 15 seconds or after every 100 events), and
    * always at app reactivation. This is the default value.
    */
-  |
-  'auto'
+  | 'auto'
   /**
    * Only flush when AppEventsLogger.flush() is explicitly invoked.
    */
-  |
-  'explicit_only';
-type Params = {
-  [key: string]: string | number
-};
+  | 'explicit_only';
+type Params = {[key: string]: string | number};
 
 /**
  * Info about a user to increase chances of matching a Facebook user.
  * See https://developers.facebook.com/docs/app-events/advanced-matching for
  * more info about the expected format of each field.
  */
-type UserData = $ReadOnly < {
-  |
-  email ? : ? string,
-  firstName ? : ? string,
-  lastName ? : ? string,
-  phone ? : ? string,
-  dateOfBirth ? : ? string,
-  gender ? : ? ('m' | 'f'),
-  city ? : ? string,
-  state ? : ? string,
-  zip ? : ? string,
-  country ? : ? string,
-  |
-} > ;
+type UserData = $ReadOnly<{|
+  email?: ?string,
+  firstName?: ?string,
+  lastName?: ?string,
+  phone?: ?string,
+  dateOfBirth?: ?string,
+  gender?: ?('m' | 'f'),
+  city?: ?string,
+  state?: ?string,
+  zip?: ?string,
+  country?: ?string,
+|}>;
 
 module.exports = {
   /**
@@ -80,7 +74,7 @@ module.exports = {
    * logEvent(eventName: string, valueToSum: number, parameters: {[key:string]:string|number});
    * See https://developers.facebook.com/docs/app-events/android for detail.
    */
-  logEvent(eventName: string, ...args: Array < number | Params > ) {
+  logEvent(eventName: string, ...args: Array<number | Params>) {
     let valueToSum = 0;
     if (typeof args[0] === 'number') {
       valueToSum = args.shift();
@@ -98,7 +92,7 @@ module.exports = {
   logPurchase(
     purchaseAmount: number,
     currencyCode: string,
-    parameters ? : ? Params,
+    parameters?: ?Params,
   ) {
     AppEventsLogger.logPurchase(purchaseAmount, currencyCode, parameters);
   },
@@ -106,7 +100,7 @@ module.exports = {
   /**
    * Logs an app event that tracks that the application was open via Push Notification.
    */
-  logPushNotificationOpen(payload: ? Object) {
+  logPushNotificationOpen(payload: ?Object) {
     AppEventsLogger.logPushNotificationOpen(payload);
   },
 
@@ -128,7 +122,7 @@ module.exports = {
   /**
    * Returns user id or null if not set
    */
-  async getUserID(): Promise < ? string > {
+  async getUserID(): Promise<?string> {
     return await AppEventsLogger.getUserID();
   },
 
@@ -162,7 +156,7 @@ module.exports = {
   setPushNotificationsRegistrationId(registrationId: string) {
     AppEventsLogger.setPushNotificationsRegistrationId(registrationId);
   },
-  logAddedPaymentInfo() {
+logAddedPaymentInfo() {
     AppEventsLogger.logAddedPaymentInfo();
   },
   logInitiateCheckout(
@@ -193,24 +187,7 @@ module.exports = {
       price,
     );
   },
-logAddedPaymentInfo() {
-    AppEventsLogger.logAddedPaymentInfo();
-  },
-  logInitiateCheckout(
-    contentId: string,
-    contentType: string,
-    currencyCode: string,
-    numItems: number,
-    price: number
-  ) {
-    AppEventsLogger.logInitiateCheckout(
-      contentId,
-      contentType,
-      currencyCode,
-      numItems,
-      price
-    );
-  },
+
   logViewedContentEvent(
     contentId: string,
     contentType: string,
