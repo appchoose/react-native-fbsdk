@@ -75,7 +75,7 @@ RCT_EXPORT_METHOD(logInitiateCheckout :(NSString *)contentId
 RCT_EXPORT_METHOD(logAddedPaymentInfo) {
     NSDictionary *params =
     @{
-      FBSDKAppEventParameterNameSuccess : 1
+      FBSDKAppEventParameterNameSuccess : @1
       };
     [FBSDKAppEvents
      logEvent:FBSDKAppEventNameAddedPaymentInfo
