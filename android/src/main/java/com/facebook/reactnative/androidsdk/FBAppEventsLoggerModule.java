@@ -176,7 +176,7 @@ public class FBAppEventsLoggerModule extends ReactContextBaseJavaModule {
     }
 
      @ReactMethod
-        public void logInitiateCheckout (String currency, double price ,@Nullable ReadableMap parameters) {
+        public void logInitiateCheckout (String contentId, String contentType, String currency, Integer numItems, double price) {
         Bundle params = new Bundle();
         params.putString(AppEventsConstants.EVENT_PARAM_CONTENT_ID, contentId);
         params.putString(AppEventsConstants.EVENT_PARAM_CONTENT_TYPE, contentType);
