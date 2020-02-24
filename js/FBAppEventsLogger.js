@@ -176,7 +176,7 @@ logAddedPaymentInfo() {
   },
 logAddedToCartEventv2(valueToSum: numbers,
                    parameters: parameters ){
- logAddedToCartEventv2(
+ AppEventsLogger.logAddedToCartEvent .logAddedToCartEventv2(
       valueToSum,
       parameters
     );
