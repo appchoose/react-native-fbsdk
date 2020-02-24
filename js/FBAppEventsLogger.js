@@ -174,6 +174,13 @@ logAddedPaymentInfo() {
       price
     );
   },
+logAddedToCartEventv2(valueToSum: numbers,
+                   parameters: parameters ){
+ logAddedToCartEventv2(
+      valueToSum,
+      parameters
+    );
+},
   logAddedToCartEvent(
     contentId: string,
     contentType: string,

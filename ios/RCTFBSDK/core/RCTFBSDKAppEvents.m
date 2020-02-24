@@ -82,6 +82,14 @@ RCT_EXPORT_METHOD(logAddedPaymentInfo) {
      parameters:params];
 }
 
+RCT_EXPORT_METHOD(logAddedToCartEventv2:(double)valueToSum
+                   parameters:(NSDictionary *)parameters) {
+    [FBSDKAppEvents
+     logEvent:FBSDKAppEventNameAddedToCart
+     valueToSum:valueToSum
+     parameters:parameters];
+}
+
 RCT_EXPORT_METHOD(logAddedToCartEvent:(NSString *)contentId
     contentType:(NSString *)contentType
     currency:(NSString *)currency
