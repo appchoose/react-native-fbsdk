@@ -31,17 +31,21 @@ public class FBAppLink extends ReactContextBaseJavaModule {
         new AppLinkData.CompletionHandler() {
           @Override
           public void onDeferredAppLinkDataFetched(AppLinkData appLinkData) {
-              if (appLinkData != null && appLinkData.getTargetUri() != null){
-                promise.resolve(appLinkData.getTargetUri().toString());
+              if (appLinkData != null ){
+              if (appLinkData.getTargetUri() != null){
+                  promise.resolve(appLinkData.getTargetUri().toString());
+                }else{
+                  promise.reject("no_url getTargetUri null");
+                }
               }else{
-                 promise.reject("no_url new");
+                 promise.reject("no_url appLinkData null");
               }
           }
       }
       );
     } catch (Exception e) {
           System.out.println(e.getMessage());
-      promise.reject(e.getMessage());
+           promise.reject(e.getMessage());
     }
   }
 
