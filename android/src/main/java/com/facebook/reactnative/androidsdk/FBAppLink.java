@@ -34,7 +34,7 @@ public class FBAppLink extends ReactContextBaseJavaModule {
               if (appLinkData != null && appLinkData.getTargetUri() != null){
                 promise.resolve(appLinkData.getTargetUri().toString());
               }else{
-                 promise.reject("no_url");
+                 promise.reject("no_url new");
               }
           }
       }

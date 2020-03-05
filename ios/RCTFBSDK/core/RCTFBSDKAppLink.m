@@ -22,8 +22,10 @@ RCT_REMAP_METHOD(get,
           reject(@"error", @"There were an error", error);
       }
       if (url) {
-        [[UIApplication sharedApplication] openURL:url];
-        resolve(url);
+      self->appLinkUrl = url;
+      [[UIApplication sharedApplication] openURL:url];
+      NSString* volumeString = [NSString stringWithFormat:@"%@", self->appLinkUrl];
+      resolve(volumeString);
       }else{
         resolve(url);
       }
