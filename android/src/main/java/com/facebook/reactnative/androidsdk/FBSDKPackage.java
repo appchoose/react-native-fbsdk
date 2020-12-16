@@ -38,12 +38,12 @@ public class FBSDKPackage implements ReactPackage {
         return Arrays.<NativeModule>asList(
                 new FBAccessTokenModule(reactContext),
                 new FBAppEventsLoggerModule(reactContext),
-                new FBAppLink(reactContext),
+                new FBAppLinkModule(reactContext),
                 new FBGameRequestDialogModule(reactContext, mActivityEventListener),
                 new FBGraphRequestModule(reactContext),
                 new FBLoginManagerModule(reactContext, mActivityEventListener),
                 new FBMessageDialogModule(reactContext, mActivityEventListener),
-                new FBShareAPIModule(reactContext),
+                new FBSettingsModule(),
                 new FBShareDialogModule(reactContext, mActivityEventListener)
         );
     }

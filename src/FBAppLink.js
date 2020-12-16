@@ -28,7 +28,7 @@ const AppLink = require('react-native').NativeModules.FBAppLink;
  */
 
 class FBAppLink {
-    static get(): Promise < any > {
+    static get() {
         return AppLink.get();
     }
 }

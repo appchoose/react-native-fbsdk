@@ -45,6 +45,9 @@ module.exports = {
   get AppEventsLogger() {
     return require('./FBAppEventsLogger');
   },
+  get AppLink() {
+    return require('./FBAppLink');
+  },
   get GameRequestDialog() {
     return require('./FBGameRequestDialog');
   },
@@ -60,8 +63,8 @@ module.exports = {
   get MessageDialog() {
     return require('./FBMessageDialog');
   },
-  get ShareApi() {
-    return require('./FBShareApi');
+  get Settings() {
+    return require('./FBSettings');
   },
   get ShareDialog() {
     return require('./FBShareDialog');

@@ -40,7 +40,13 @@ npm install --save react-native-fbsdk
 - **React Native 0.60+**
 
 
-[CLI autolink feature](https://github.com/react-native-community/cli/blob/master/docs/autolinking.md) links the module while building the app. 
+[CLI autolink feature](https://github.com/react-native-community/cli/blob/master/docs/autolinking.md) links the module while building the app.
+
+*Note* For `iOS` using `cocoapods`, run:
+
+```bash
+$ cd ios/ && pod install
+```
 
 
 - **React Native <= 0.59**
@@ -48,12 +54,6 @@ npm install --save react-native-fbsdk
 
 ```bash
 $ react-native link react-native-fbsdk
-```
-
-*Note* For `iOS` using `cocoapods`, run:
-
-```bash
-$ cd ios/ && pod install
 ```
 
 If you can't or don't want to use the CLI tool, you can also manually link the library using the instructions below (click on the arrow to show them):
@@ -116,9 +116,9 @@ Before you can run the project, follow the [Getting Started Guide](https://devel
 
 #### 3.2 iOS
 
-Follow ***steps 3 and 4*** in the [Getting Started Guide](https://developers.facebook.com/docs/ios/getting-started/) for Facebook SDK for iOS.
+Follow ***steps 3 and 4*** in the [Getting Started Guide](https://developers.facebook.com/docs/ios/getting-started/?sdk=cocoapods) for Facebook SDK for iOS.
 
-**If you're not using cocoapods already** you can also follow step 2 to set it up.
+**If you're not using cocoapods already** you can also follow step 1.1 to set it up.
 
 **If you're using React Native's RCTLinkingManager**
 
@@ -155,6 +155,10 @@ The `AppDelegate.m` file can only have one method for `openUrl`. If you're also 
 3. I get this build error: `no type or protocol named UIApplicationOpenURLOptionsKey`:
 
 - Your Xcode version is too old. Upgrade to Xcode 10.0+.
+
+4. After **facebook-ios-sdk v7** you need to create a swift file into the main project folder:
+
+- [File.Swift](https://github.com/facebook/react-native-fbsdk/blob/master/example/ios/RNFBSDKExample/File.swift)
 
 ## Usage
 
@@ -397,18 +401,14 @@ new GraphRequestManager().addRequest(infoRequest).start();
 
 ## Example app
 
-- Run `yarn start` in the repo root to start the packager for the example app
-
 ### iOS
 
 - Run `pod install` in `example/ios`
-- Open `example/ios/RNFBSDKExample.xcworkspace` with xcode
-- Run the example app
+- Run `yarn example:ios`
 
 ### Android
 
-- Start a simulator
-- Run `./gradlew installDebug` in `example/android`
+- Run `yarn example:android`
 
 ## Join the React Native community
 

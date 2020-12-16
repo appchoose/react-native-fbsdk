@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2014-present, Facebook, Inc. All rights reserved.
+ * Copyright (c) 2015-present, Facebook, Inc. All rights reserved.
  *
  * You are hereby granted a non-exclusive, worldwide, royalty-free license to use,
  * copy, modify, and distribute this software in source code or binary form for use
@@ -20,6 +20,7 @@
  * @flow
  * @format
  */
+
 'use strict';
 
 import * as React from 'react';
@@ -27,7 +28,7 @@ import {requireNativeComponent, StyleSheet} from 'react-native';
 
 import type {ShareContent} from './models/FBShareContent';
 
-class SendButton extends React.Component<{
+class ShareButton extends React.Component<{
   /**
    * Content to be shared.
    */
@@ -43,7 +44,7 @@ class SendButton extends React.Component<{
   };
 
   render() {
-    return <RCTFBSendButton {...this.props} />;
+    return <RCTFBShareButton {...this.props} />;
   }
 }
 
@@ -54,10 +55,10 @@ const styles = StyleSheet.create({
   },
 });
 
-SendButton.defaultProps = {
+ShareButton.defaultProps = {
   style: styles.defaultButtonStyle,
 };
 
-const RCTFBSendButton = requireNativeComponent('RCTFBSendButton');
+const RCTFBShareButton = requireNativeComponent<any>('RCTFBShareButton');
 
-module.exports = SendButton;
+module.exports = ShareButton;

@@ -28,7 +28,6 @@ import {requireNativeComponent, StyleSheet} from 'react-native';
 import type {
   DefaultAudience,
   LoginBehaviorAndroid,
-  LoginBehaviorIOS,
   LoginResult,
 } from './FBLoginManager';
 
@@ -60,12 +59,6 @@ class LoginButton extends React.Component<{
    * @platform android
    */
   loginBehaviorAndroid?: LoginBehaviorAndroid,
-
-  /**
-   * The behavior to use when attempting a login.
-   * @platform ios
-   */
-  loginBehaviorIOS?: LoginBehaviorIOS,
 
   /**
    * The default audience to target when attempting a login.
@@ -121,6 +114,6 @@ LoginButton.defaultProps = {
   style: styles.defaultButtonStyle,
 };
 
-const RCTFBLoginButton = requireNativeComponent('RCTFBLoginButton');
+const RCTFBLoginButton = requireNativeComponent<any>('RCTFBLoginButton');
 
 module.exports = LoginButton;

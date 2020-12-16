@@ -22,37 +22,42 @@
  */
 'use strict';
 
-const ShareApi = require('react-native').NativeModules.FBShareApi;
-const ShareOpenGraphObject = require('./models/FBShareOpenGraphObject');
+import * as React from 'react';
+import {requireNativeComponent, StyleSheet} from 'react-native';
 
 import type {ShareContent} from './models/FBShareContent';
 
-module.exports = {
+class SendButton extends React.Component<{
   /**
-   * Check if the content can be shared via share api.
+   * Content to be shared.
    */
-  canShare(shareContent: ShareContent): Promise<boolean> {
-    return ShareApi.canShare(shareContent);
-  },
+  shareContent: ShareContent,
 
   /**
-   * For iOS only, creates a User Owned Open Graph object without an action.
-   * NOTE: Only one share action can be performed at a time.
-   * @platform ios
+   * View style, if any.
    */
-  createOpenGraphObject(openGraphObject: ShareOpenGraphObject): Promise<any> {
-    return ShareApi.createOpenGraphObject(openGraphObject);
-  },
+  style?: any,
+}> {
+  static defaultProps: {
+    style: typeof styles.defaultButtonStyle,
+  };
 
-  /**
-   * Shares the specified content with a message.
-   * NOTE: Only one share action can be performed at a time.
-   */
-  share(
-    shareContent: ShareContent,
-    graphNode: string,
-    message: string,
-  ): Promise<any> {
-    return ShareApi.share(shareContent, graphNode, message);
+  render() {
+    return <RCTFBSendButton {...this.props} />;
+  }
+}
+
+const styles = StyleSheet.create({
+  defaultButtonStyle: {
+    height: 30,
+    width: 80,
   },
+});
+
+SendButton.defaultProps = {
+  style: styles.defaultButtonStyle,
 };
+
+const RCTFBSendButton = requireNativeComponent<any>('RCTFBSendButton');
+
+module.exports = SendButton;
