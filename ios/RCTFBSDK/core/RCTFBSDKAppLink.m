@@ -50,3 +50,18 @@ RCT_REMAP_METHOD(fetchDeferredAppLink,
 }
 
 @end
+
+//  [FBSDKAppLinkUtility fetchDeferredAppLink:^(NSURL *url, NSError *error) {
+//        if (error) {
+//         RCTLogInfo(@"FBAppLink Received error while fetching deferred app link %@", error);
+//           reject(@"error", @"There were an error", error);
+//       }
+//       if (url) {
+//       self->appLinkUrl = url;
+//       [[UIApplication sharedApplication] openURL:url];
+//       NSString* volumeString = [NSString stringWithFormat:@"%@", self->appLinkUrl];
+//       resolve(volumeString);
+//       }else{
+//         resolve(url);
+//       }
+//     }];
