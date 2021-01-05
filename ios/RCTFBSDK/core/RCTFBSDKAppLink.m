@@ -19,7 +19,6 @@ RCT_REMAP_METHOD(fetchDeferredAppLink,
 {
    [FBSDKAppLinkUtility fetchDeferredAppLink:^(NSURL *url, NSError *error) {
        if (error) {
-        RCTLogInfo(@"FBAppLink Received error while fetching deferred app link %@", error);
           reject(@"error", @"There were an error", error);
       }
       if (url) {
