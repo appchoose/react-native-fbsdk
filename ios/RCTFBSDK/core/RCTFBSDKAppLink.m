@@ -35,18 +35,32 @@ RCT_REMAP_METHOD(fetchDeferredAppLink,
                  resolver:(RCTPromiseResolveBlock)resolve
                  rejecter:(RCTPromiseRejectBlock)reject)
 {
-  [FBSDKAppLinkUtility fetchDeferredAppLink:^(NSURL *url, NSError *error) {
-    if (error) {
-      NSLog(@"Received error while fetching deferred app link %@", error);
-    }
+   [FBSDKAppLinkUtility fetchDeferredAppLink:^(NSURL *url, NSError *error) {
+       if (error) {
+        RCTLogInfo(@"FBAppLink Received error while fetching deferred app link %@", error);
+          reject(@"error", @"There were an error", error);
+      }
+      if (url) {
+      self->appLinkUrl = url;
+      [[UIApplication sharedApplication] openURL:url];
+      NSString* volumeString = [NSString stringWithFormat:@"%@", self->appLinkUrl];
+      resolve(volumeString);
+      }else{
+        resolve(url);
+      }
+    }];
+  // [FBSDKAppLinkUtility fetchDeferredAppLink:^(NSURL *url, NSError *error) {
+  //   if (error) {
+  //     NSLog(@"Received error while fetching deferred app link %@", error);
+  //   }
 
-    if (url) {
-      NSString* appLink = [NSString stringWithFormat:@"%@", url];
-      resolve(appLink);
-    }else{
-      resolve(nil);
-    }
-  }];
+  //   if (url) {
+  //     NSString* appLink = [NSString stringWithFormat:@"%@", url];
+  //     resolve(appLink);
+  //   }else{
+  //     resolve(nil);
+  //   }
+  // }];
 }
 
 @end
